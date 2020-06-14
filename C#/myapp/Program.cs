@@ -8,9 +8,9 @@ namespace MyFirstApp
 {
     class Programm
     {
-        static void Main (string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine ("Hello, говно)\n");
+        
         }
     }
 }
