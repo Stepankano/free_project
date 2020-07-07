@@ -24,7 +24,6 @@ namespace Homework
             for(int i = 0;i<new_word.Length;i++){
                 str.Replace(old_word[i],new_word[i]);
             }
-
             return str;
         }
         static public int FindGuideNumber(int[] list)
