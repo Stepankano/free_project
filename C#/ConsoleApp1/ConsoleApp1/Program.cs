@@ -19,26 +19,13 @@ namespace Homework
 
     class HW_1
     {
-        static public string Censor(string str, string old_word, string new_word) //capybara -> copypast
+        static public string Censor(string str, string[] old_word, string[] new_word) //capybara -> copypast
         {
-            string new_str = new string("");
-            int ending = 0;
-            for (int i = 0; i < str.Length - old_word.Length; i++)
-            {
-                if (str[i..(old_word.Length + i)].Equals(old_word))
-                {
-                    new_str += new_word;
-                    i += old_word.Length;
-                }
-                new_str += str[i];
-                ending = i + 1;
-            }
-            for (int i = ending; i < str.Length; i++)
-            {
-                new_str += str[i];
+            for(int i = 0;i<new_word.Length;i++){
+                str.Replace(old_word[i],new_word[i]);
             }
 
-            return new_str;
+            return str;
         }
         static public int FindGuideNumber(int[] list)
         {
@@ -112,9 +99,9 @@ namespace Homework
     {
         static public void Test_Cens()
         {
-            string old_word = new string("capybara");
-            string new_word = new string("time-traveler");
-            string test_Cens_1 = new string("I see a capybara at forest");
+            string[] old_word = new string[]{"capybara","to capybara","from capybara"};
+            string[] new_word = new string[]{"copypast","to copypast","from copypast"};
+            string test_Cens_1 = new string("I hear noise from capybara at forest");
             string test_Cens_2 = new string("Where is my capybara-backpack for that capybara?");
             Console.WriteLine(HW_1.Censor(test_Cens_1, old_word, new_word));
             Console.WriteLine(HW_1.Censor(test_Cens_2, old_word, new_word));
