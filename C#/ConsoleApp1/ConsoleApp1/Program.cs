@@ -11,8 +11,10 @@ namespace Homework
     {
         static void Main(string[] args)
         {
-
-
+Test_HW_1.Test_Cens();
+Test_HW_1.Test_FGN();
+Test_HW_1.Test_FMI();
+Test_HW_1.Test_FV();
         }
 
     }
@@ -22,7 +24,7 @@ namespace Homework
         static public string Censor(string str, string[] old_word, string[] new_word) //capybara -> copypast
         {
             for(int i = 0;i<new_word.Length;i++){
-                str.Replace(old_word[i],new_word[i]);
+               str =  str.Replace(old_word[i],new_word[i]);
             }
             return str;
         }
