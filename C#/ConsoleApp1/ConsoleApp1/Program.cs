@@ -11,10 +11,7 @@ namespace Homework
     {
         static void Main(string[] args)
         {
-Test_HW_1.Test_Cens();
-Test_HW_1.Test_FGN();
-Test_HW_1.Test_FMI();
-Test_HW_1.Test_FV();
+
         }
 
     }
@@ -23,8 +20,9 @@ Test_HW_1.Test_FV();
     {
         static public string Censor(string str, string[] old_word, string[] new_word) //capybara -> copypast
         {
-            for(int i = 0;i<new_word.Length;i++){
-               str =  str.Replace(old_word[i],new_word[i]);
+            for (int i = 0; i < new_word.Length; i++)
+            {
+                str = str.Replace(old_word[i], new_word[i]);
             }
             return str;
         }
@@ -100,8 +98,8 @@ Test_HW_1.Test_FV();
     {
         static public void Test_Cens()
         {
-            string[] old_word = new string[]{"capybara","to capybara","from capybara"};
-            string[] new_word = new string[]{"copypast","to copypast","from copypast"};
+            string[] old_word = new string[] { "capybara", "to capybara", "from capybara" };
+            string[] new_word = new string[] { "copypast", "to copypast", "from copypast" };
             string test_Cens_1 = new string("I hear noise from capybara at forest");
             string test_Cens_2 = new string("Where is my capybara-backpack for that capybara?");
             Console.WriteLine(HW_1.Censor(test_Cens_1, old_word, new_word));
@@ -253,10 +251,58 @@ Test_HW_1.Test_FV();
             }
             else
             {
-                tmp[0,0]=tmp[0,1]=tmp[1,0]=tmp[1,1]=0;
+                tmp[0, 0] = tmp[0, 1] = tmp[1, 0] = tmp[1, 1] = 0;
                 matr = tmp;
                 return false;
             }
         }
+    }
+    class ListOfMatrix
+    {
+        static private List<Matrix> ListOfMatr;
+        public Matrix this[int index]
+        {
+            get
+            {
+                return ListOfMatr[index];
+            }
+            set
+            {
+                ListOfMatr[index] = value;
+            }
+        }
+        public void SortList()
+        {
+            ListOfMatr.Sort();
+        }
+        public Matrix FirstOfList()
+        {
+            return ListOfMatr.First();
+        }
+        public Matrix EndOfList()
+        {
+            return ListOfMatr.Last();
+        }
+        public void AppendToList(Matrix matr)
+        {
+            ListOfMatr.Append(matr);
+        }
+        public ListOfMatrix MinMatrix()
+        {
+            return (ListOfMatrix)ListOfMatr.Select(x => x.get_determinator() <= x.get_determinator());
+        }
+        public ListOfMatrix MaxMatrix()
+        {
+            return (ListOfMatrix)ListOfMatr.Select(x => x.get_determinator() >= x.get_determinator());
+        }
+        public Matrix[] ToArray()
+        {
+            return ListOfMatr.ToArray();
+        }
+    }
+
+    static class MatrixLnOut
+    {
+        
     }
 }
