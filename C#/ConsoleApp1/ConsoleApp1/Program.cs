@@ -144,7 +144,7 @@ namespace Homework
             Determinate();
             return determinator;
         }
-        static public void Determinate()
+        public void Determinate()
         {
             determinator = matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
         }
