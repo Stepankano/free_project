@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 class Matrix
 {
@@ -79,14 +80,16 @@ class Matrix
     {
         return one.get_determinator() / two.get_determinator();
     }
-    public void Parse(string str)
+    static public Matrix Parse(string str)
     {
         // 00 01 10 11
         string[] str_array = str.Split(" ", 4);
-        matrix[0, 0] = double.Parse(str_array[0]);
-        matrix[0, 1] = double.Parse(str_array[1]);
-        matrix[1, 0] = double.Parse(str_array[2]);
-        matrix[1, 1] = double.Parse(str_array[3]);
+        Matrix matr = new Matrix();
+        matr[0, 0] = double.Parse(str_array[0]);
+        matr[0, 1] = double.Parse(str_array[1]);
+        matr[1, 0] = double.Parse(str_array[2]);
+        matr[1, 1] = double.Parse(str_array[3]);
+        return matr;
     }
     public bool TryParse(string str, out Matrix matr)
     {
@@ -181,5 +184,21 @@ class ListOfMatrix
 
 static class MatrixLnOut
 {
+    static public ListOfMatrix EnterMatrix(string path){
+        //FileStream file = new FileStream(path, FileMode.Open);
+        StreamReader StreamRead = new StreamReader(path);
+        string str = new string("");
+        ListOfMatrix ListMatr = new ListOfMatrix();
+        while((str = StreamRead.ReadLine())!=null){
+            ListMatr.AppendToList(Matrix.Parse(str));
+        }
+        return ListMatr;
+    }
 
+    static public void OutMatrix(string path,ListOfMatrix ListMatr){
+        //FileStream file = new FileStream(path, FileMode.Open);
+        StreamWriter StreamWrite = new StreamWriter(path);
+        string str = new string("");
+        
+    }
 }

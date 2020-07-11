@@ -42,7 +42,7 @@ class HW_1
         {
             if (list[0..(x + 1)].Sum() == list[x..list.Length].Sum())
             {
-                index.Append(x);
+                index = index.Append(x).ToArray();
             };
         }
         return index;
@@ -105,8 +105,17 @@ class Test_HW_1
     {
         int[] test_FMI_1 = new int[] { -4, -4, -4, 4, -4, -4, -4 }; //2,3,4
         int[] test_FMI_2 = new int[] { 3, -4, -2, 0, -3 };//3
-        Console.WriteLine(HW_1.FindMainIndexes(test_FMI_1));
-        Console.WriteLine(HW_1.FindMainIndexes(test_FMI_2));
+        
+        foreach (int i in HW_1.FindMainIndexes(test_FMI_1))
+        {
+            Console.Write($"{i}");
+        }
+        Console.WriteLine();
+        foreach (int i in HW_1.FindMainIndexes(test_FMI_2))
+        {
+            Console.Write($"{i}");
+        }
+        Console.WriteLine();
     }
     static public void Test_FV()
     {
