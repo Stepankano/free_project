@@ -5,4 +5,18 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Homework_1.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Homework_1.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TaskContract">
+      <HintPath>..\..\..\..\..\Downloads\TaskContract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

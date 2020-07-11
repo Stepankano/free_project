@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TaskContract;
+class HW_1 : IEasy, IMedium, IHardCore
+{
+    public string FIO => "����������� �.�.";
+    //public string Group => "���. 802";
+    public string Group => "M80-102�-19";
+    public int FindGuideNumber(int[] list)
+    {
+        var list_new = (list.OrderBy(x => x)).ToList();
+
+        int local_max = 1;
+        for (int i = 0; i < list.Length - 1; i++)
+        {
+            if (list_new[i] == list_new[i + 1])
+            {
+                local_max += 1;
+            }
+            else
+            {
+                if (local_max > list.Length / 2)
+                {
+                    return list[i];
+                }
+                local_max = 1;
+            }
+        }
+        return local_max > list.Length / 2 ? list_new[list.Length - 1] : -1;
+    }
+
+    public int[] FindMainIndexes(int[] list)
+    {
+
+        int[] index = new int[0];
+        for (int x = 0; x < list.Length; x++)
+        {
+            if (list[0..(x + 1)].Sum() == list[x..list.Length].Sum())
+            {
+                index = index.Append(x).ToArray();
+            };
+        }
+        return index;
+
+    }
+    public int FindVolume(int[] list) //FAANG
+    {
+        int volume = 0;
+        for (int i = 1; i <= list.Max(); i++)
+        {
+            int left_bord = 0, right_bord = 0;
+            for (int k = 0; k < list.Length; k++)
+            {
+                if (list[k] >= i)
+                {
+                    left_bord = k;
+                    break;
+                }
+            }
+            for (int k = list.Length - 1; k >= 0; k--)
+            {
+                if (list[k] >= i)
+                {
+                    right_bord = k;
+                    break;
+                }
+            }
+            for (int k = left_bord + 1; k < right_bord; k++)
+            {
+                volume += list[k] >= i ? 0 : 1;
+            }
+        }
+
+        return volume;
+    }
+}
