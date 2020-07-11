@@ -22,14 +22,32 @@ class Matrix
     }
     public double this[int x, int y]
     {
+
         get
         {
+            try
+            {
+                double example = matrix[x, y];
+                }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return matrix[x, y];
         }
         set
         {
+            try
+            {
+               double example =  matrix[x, y];}
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             matrix[x, y] = value;
         }
+
+
     }
     public Matrix FindReverseMatrix()
     {
