@@ -35,10 +35,17 @@ class Matrix
     {
         Matrix reverse = new Matrix();
         Determinate();
-        reverse[0, 0] = matrix[1, 1] / determinator;
-        reverse[0, 1] = -matrix[0, 1] / determinator;
-        reverse[1, 0] = -matrix[1, 0] / determinator;
-        reverse[1, 1] = matrix[0, 0] / determinator;
+        try
+        {
+            reverse[0, 0] = matrix[1, 1] / determinator;
+            reverse[0, 1] = -matrix[0, 1] / determinator;
+            reverse[1, 0] = -matrix[1, 0] / determinator;
+            reverse[1, 1] = matrix[0, 0] / determinator;
+        }
+        catch (DivideByZeroException zer)
+        {
+            Console.WriteLine(zer.Message);
+        }
         return reverse;
     }
     static public Matrix operator +(Matrix one, Matrix two)
@@ -91,7 +98,7 @@ class Matrix
         matr[1, 1] = double.Parse(str_array[3]);
         return matr;
     }
-    public bool TryParse(string str, out Matrix matr)
+    static public bool TryParse(string str, out Matrix matr)
     {
         string[] str_array = str.Split(" ", 4);
         byte result = 0;
@@ -131,74 +138,6 @@ class Matrix
         }
     }
 }
-class ListOfMatrix
-{
-    private List<Matrix> ListOfMatr;
-    public Matrix this[int index]
-    {
-        get
-        {
-            return ListOfMatr[index];
-        }
-        set
-        {
-            ListOfMatr[index] = value;
-        }
-    }
-    public void SortList()
-    {
-        ListOfMatr.Sort();
-    }
-    public Matrix FirstOfList()
-    {
-        return ListOfMatr.First();
-    }
-    public Matrix EndOfList()
-    {
-        return ListOfMatr.Last();
-    }
-    public void AppendToList(Matrix matr)
-    {
-        ListOfMatr.Append(matr);
-    }
-    public ListOfMatrix MinMatrix()
-    {
-        return (ListOfMatrix)ListOfMatr.Select(x => x.get_determinator() <= x.get_determinator());
-    }
-    public ListOfMatrix MaxMatrix()
-    {
-        return (ListOfMatrix)ListOfMatr.Select(x => x.get_determinator() >= x.get_determinator());
-    }
-    public Matrix[] ToArray()
-    {
-        return ListOfMatr.ToArray();
-    }
-    public void MatrixPrint()
-    {
-        foreach (Matrix i in ListOfMatr)
-        {
-            System.Console.WriteLine($"{i[0, 0]} {i[0, 1]} {i[1, 0]} {i[1, 1]}");
-        }
-    }
-}
 
-static class MatrixLnOut
-{
-    static public ListOfMatrix EnterMatrix(string path){
-        //FileStream file = new FileStream(path, FileMode.Open);
-        StreamReader StreamRead = new StreamReader(path);
-        string str = new string("");
-        ListOfMatrix ListMatr = new ListOfMatrix();
-        while((str = StreamRead.ReadLine())!=null){
-            ListMatr.AppendToList(Matrix.Parse(str));
-        }
-        return ListMatr;
-    }
 
-    static public void OutMatrix(string path,ListOfMatrix ListMatr){
-        //FileStream file = new FileStream(path, FileMode.Open);
-        StreamWriter StreamWrite = new StreamWriter(path);
-        string str = new string("");
-        
-    }
-}
+
