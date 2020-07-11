@@ -108,12 +108,12 @@ class Test_HW_1
         
         foreach (int i in HW_1.FindMainIndexes(test_FMI_1))
         {
-            Console.Write($"{i}");
+            Console.Write($"{i} ");
         }
         Console.WriteLine();
         foreach (int i in HW_1.FindMainIndexes(test_FMI_2))
         {
-            Console.Write($"{i}");
+            Console.Write($"{i} ");
         }
         Console.WriteLine();
     }
