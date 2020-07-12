@@ -25,12 +25,14 @@ namespace Homework
                 System.Console.WriteLine("5. Print all matrix, with certain determinate");
                 System.Console.WriteLine("6. Print sort list");
                 System.Console.WriteLine("7. Exit");
+
                 answer = (char)System.Console.ReadLine()[0];
                 switch (answer)
                 {
                     case '1':
                         {
-                            if(ListMatr.Count()>0){
+                            if (ListMatr.Count() > 0)
+                            {
                                 ListMatr.MatrixPrint();
                             }
                             if (Matrix.TryParse(Console.ReadLine(), out Matrix matr))
@@ -51,56 +53,75 @@ namespace Homework
                         break;
                     case '3':
                         {
-                            if(ListMatr.Count()!= 0){
-                            ListMatr.MatrixPrint();
-                        }
+                            if (ListMatr.Count() != 0)
+                            {
+                                ListMatr.MatrixPrint();
+                            }
                             Console.WriteLine();
                         }
                         break;
                     case '4':
                         {
-                           if(ListMatr.Count()!= 0){
-                            Console.WriteLine($"Min element:");
-                            ListMatr.MatrixPrint(ListMatr.MinMatrix());
-                            Console.WriteLine($"Max element:");
-                            ListMatr.MatrixPrint(ListMatr.MaxMatrix());
-                            Console.WriteLine($"First element:");
-                            var f = ListMatr.FirstOfList();
-                            Console.WriteLine($"{f[0, 0]} {f[0, 1]} {f[1, 0]} {f[1, 1]}");
-                            System.Console.WriteLine();
-                            Console.WriteLine($"End element:");
-                            var e = ListMatr.EndOfList();
-                            Console.WriteLine($"{e[0, 0]} {e[0, 1]} {e[1, 0]} {e[1, 1]}");
-                            System.Console.WriteLine();
-                            Console.WriteLine($"Count of element:");
-                            System.Console.WriteLine(ListMatr.ToArray().Length);
-                            }else{
+                            if (ListMatr.Count() != 0)
+                            {
+                                Console.WriteLine($"Min element:");
+                                ListOfMatrix.MatrixPrint(ListMatr.MinMatrix());
+                                Console.WriteLine($"Max element:");
+                                ListOfMatrix.MatrixPrint(ListMatr.MaxMatrix());
+                                Console.WriteLine($"First element:");
+                                var f = ListMatr.FirstOfList();
+                                Console.WriteLine($"{f[0, 0]} {f[0, 1]} {f[1, 0]} {f[1, 1]}");
+                                System.Console.WriteLine();
+                                Console.WriteLine($"End element:");
+                                var e = ListMatr.EndOfList();
+                                Console.WriteLine($"{e[0, 0]} {e[0, 1]} {e[1, 0]} {e[1, 1]}");
+                                System.Console.WriteLine();
+                                Console.WriteLine($"Count of element:");
+                                System.Console.WriteLine(ListMatr.ToArray().Length);
+                            }
+                            else
+                            {
                                 System.Console.WriteLine("List is empty");
                             }
                         }
                         break;
                     case '5':
                         {
-                            if(ListMatr.Count()!=0){
-                            ListOfMatrix ListMatrTMP = ListMatr;
-                            System.Console.WriteLine("Enter determinate:");
-                            double determinate = Console.Read();
-                            ListMatrTMP = (ListOfMatrix)ListMatrTMP.ToArray().Select(x => x.get_determinator() <= determinate);
-                            ListMatrTMP.MatrixPrint();
-                            }else{
+                            if (ListMatr.Count() != 0)
+                            {
+                                ListOfMatrix ListMatrTMP = ListMatr;
+                                System.Console.WriteLine("Enter determinate:");
+                                double determinate = Console.Read();
+
+                                foreach (var e in ListMatrTMP.GetList())
+                                {
+                                    bool u = e.get_determinator() == determinate;
+                                    if ( u)
+                                    {
+                                        Console.WriteLine($"{e[0, 0]} {e[0, 1]} {e[1, 0]} {e[1, 1]} det = {e.get_determinator()} {u}");
+                                    }
+                                }
+                            }
+                            else
+                            {
                                 System.Console.WriteLine("List is empty");
                             }
+                            Console.ReadLine();
                         }
                         break;
                     case '6':
                         {
-                            if(ListMatr.Count()!=0){
-                            ListOfMatrix ListMatrTMP = ListMatr;
-                            ListMatrTMP = ListMatrTMP.SortList();
-                            ListMatrTMP.MatrixPrint();
-                            }else{
+                            if (ListMatr.Count() != 0)
+                            {
+                                ListOfMatrix ListMatrTMP = ListMatr;
+                                ListOfMatrix.MatrixPrint(ListMatrTMP.SortList());
+
+                            }
+                            else
+                            {
                                 System.Console.WriteLine("List is empty");
                             }
+                            Console.ReadKey();
                         }
                         break;
                     case '7':

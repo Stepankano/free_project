@@ -4,21 +4,30 @@ using System.Linq;
 
 class ListOfMatrix
 {
-    static private List<Matrix> ListOfMatr = new List<Matrix>();
-    private Matrix this[int index]
+    private List<Matrix> ListOfMatr = new List<Matrix>();
+    public Matrix this[int index]
     {
+        
         get
         {
             return ListOfMatr[index];
         }
+        
         set
         {
             ListOfMatr[index] = value;
         }
+        
     }
-    public ListOfMatrix SortList()
+    public List<Matrix> GetList(){
+        return ListOfMatr;
+    }
+    public void SetList(List<Matrix> MatrList){
+       ListOfMatr = MatrList;
+    }
+    public List<Matrix> SortList()
     {
-        return (ListOfMatrix)ListOfMatr.OrderBy(x => x.get_determinator() >= x.get_determinator());
+        return (List<Matrix>)ListOfMatr.OrderBy(x => x.get_determinator() >= x.get_determinator()).ToList();
     }
     public Matrix FirstOfList()
     {
@@ -37,7 +46,7 @@ class ListOfMatrix
    
     public void AppendToList(Matrix matr)
     {
-        ListOfMatr.Add(matr);
+       ListOfMatr.Add(matr);
     }
     public List<Matrix> MinMatrix()
     {
@@ -58,7 +67,7 @@ class ListOfMatrix
             System.Console.WriteLine($"{i[0, 0]} {i[0, 1]} {i[1, 0]} {i[1, 1]}");
         }
     }
-    public void MatrixPrint(List<Matrix> matr)
+    static public void MatrixPrint(List<Matrix> matr)
     {
         foreach (Matrix i in matr)
         {
