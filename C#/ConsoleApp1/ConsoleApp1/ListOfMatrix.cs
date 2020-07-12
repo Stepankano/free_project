@@ -4,8 +4,8 @@ using System.Linq;
 
 class ListOfMatrix
 {
-    private List<Matrix> ListOfMatr;
-    public Matrix this[int index]
+    static private List<Matrix> ListOfMatr = new List<Matrix>();
+    private Matrix this[int index]
     {
         get
         {
@@ -18,7 +18,7 @@ class ListOfMatrix
     }
     public ListOfMatrix SortList()
     {
-     return (ListOfMatrix)ListOfMatr.OrderBy(x => x.get_determinator() >= x.get_determinator());
+        return (ListOfMatrix)ListOfMatr.OrderBy(x => x.get_determinator() >= x.get_determinator());
     }
     public Matrix FirstOfList()
     {
@@ -28,17 +28,24 @@ class ListOfMatrix
     {
         return ListOfMatr.Last();
     }
+    public int Count(){
+        if(ListOfMatr==null){
+            return 0;
+        }
+        return ListOfMatr.Count();
+    }
+   
     public void AppendToList(Matrix matr)
     {
-        ListOfMatr.Append(matr);
+        ListOfMatr.Add(matr);
     }
-    public ListOfMatrix MinMatrix()
+    public List<Matrix> MinMatrix()
     {
-        return (ListOfMatrix)ListOfMatr.Select(x => x.get_determinator() <= x.get_determinator());
+        return (List<Matrix>)ListOfMatr.Where(x => x.get_determinator() <= x.get_determinator()).ToList();
     }
-    public ListOfMatrix MaxMatrix()
+    public List<Matrix> MaxMatrix()
     {
-        return (ListOfMatrix)ListOfMatr.Select(x => x.get_determinator() >= x.get_determinator());
+        return (List<Matrix>)ListOfMatr.Where(x => x.get_determinator() >= x.get_determinator()).ToList();
     }
     public Matrix[] ToArray()
     {
@@ -47,6 +54,13 @@ class ListOfMatrix
     public void MatrixPrint()
     {
         foreach (Matrix i in ListOfMatr)
+        {
+            System.Console.WriteLine($"{i[0, 0]} {i[0, 1]} {i[1, 0]} {i[1, 1]}");
+        }
+    }
+    public void MatrixPrint(List<Matrix> matr)
+    {
+        foreach (Matrix i in matr)
         {
             System.Console.WriteLine($"{i[0, 0]} {i[0, 1]} {i[1, 0]} {i[1, 1]}");
         }

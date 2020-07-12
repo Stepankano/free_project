@@ -28,7 +28,7 @@ class Matrix
             try
             {
                 double example = matrix[x, y];
-                }
+            }
             catch (IndexOutOfRangeException ex)
             {
                 Console.WriteLine(ex.Message);
@@ -39,7 +39,8 @@ class Matrix
         {
             try
             {
-               double example =  matrix[x, y];}
+                double example = matrix[x, y];
+            }
             catch (IndexOutOfRangeException ex)
             {
                 Console.WriteLine(ex.Message);
@@ -118,6 +119,7 @@ class Matrix
     }
     static public bool TryParse(string str, out Matrix matr)
     {
+        try{
         string[] str_array = str.Split(" ", 4);
         byte result = 0;
         double number;
@@ -154,6 +156,12 @@ class Matrix
             matr = tmp;
             return false;
         }
+        }
+        catch(ArgumentOutOfRangeException ex){
+            System.Console.WriteLine(ex.Message);
+        }
+        matr = null;
+        return false;
     }
 }
 

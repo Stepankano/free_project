@@ -11,3 +11,5 @@ C:\Users\Praetor\Labs\Free Projects\C#\ConsoleApp1\ConsoleApp1\obj\Debug\netcore
 C:\Users\Praetor\Labs\Free Projects\C#\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
 C:\Users\Praetor\Labs\Free Projects\C#\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
 C:\Users\Praetor\Labs\Free Projects\C#\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
+C:\Users\Praetor\Labs\Free Projects\C#\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\TaskContract.dll
+C:\Users\Praetor\Labs\Free Projects\C#\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CopyComplete
