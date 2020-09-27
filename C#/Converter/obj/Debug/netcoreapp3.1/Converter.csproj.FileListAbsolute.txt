@@ -1,0 +1,13 @@
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\bin\Debug\netcoreapp3.1\Converter.exe
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\bin\Debug\netcoreapp3.1\Converter.deps.json
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\bin\Debug\netcoreapp3.1\Converter.runtimeconfig.json
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\bin\Debug\netcoreapp3.1\Converter.runtimeconfig.dev.json
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\bin\Debug\netcoreapp3.1\Converter.dll
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\bin\Debug\netcoreapp3.1\Converter.pdb
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\obj\Debug\netcoreapp3.1\Converter.csprojAssemblyReference.cache
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\obj\Debug\netcoreapp3.1\Converter.AssemblyInfoInputs.cache
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\obj\Debug\netcoreapp3.1\Converter.AssemblyInfo.cs
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\obj\Debug\netcoreapp3.1\Converter.csproj.CoreCompileInputs.cache
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\obj\Debug\netcoreapp3.1\Converter.dll
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\obj\Debug\netcoreapp3.1\Converter.pdb
+C:\Users\Praetor\Labs\Free Projects\C#\Converter\obj\Debug\netcoreapp3.1\Converter.genruntimeconfig.cache
